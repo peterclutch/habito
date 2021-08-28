@@ -1,0 +1,41 @@
+<div class="page-container">
+  <form class="login-container" [formGroup]="loginForm">
+    <div class="logo">habito🪴</div>
+    <div class="login-container__input">
+      <div>
+        <ha-label for="email">email</ha-label>
+        <ha-text
+          name="email"
+          type="text"
+          autocomplete="username email"
+          placeholder="Your email address"
+          prefixIcon="ic-email"
+          formControlName="username"
+          [autoSelect]="true"
+        ></ha-text>
+      </div>
+      <div>
+        <ha-label for="password">password</ha-label>
+        <ha-text
+          name="password"
+          type="password"
+          placeholder="Your password"
+          prefixIcon="ic-password"
+          formControlName="password"
+          autocomplete="new-password"
+        ></ha-text>
+      </div>
+      <div>
+        <a (click)="reset()" class="password-forgotten">forgot password?</a>
+      </div>
+    </div>
+    <button
+      [style.--degree]="degree"
+      [disabled]="loginForm.invalid || loading"
+      (click)="login()"
+    >
+      <ha-loader *ngIf="loading"></ha-loader>
+      <span>Sign in</span>
+    </button>
+  </form>
+</div>

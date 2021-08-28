@@ -1,0 +1,8 @@
+<div *ngIf="menuHidden">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="!menuHidden">
+    <ha-layout>
+      <router-outlet></router-outlet>
+    </ha-layout>
+</div>

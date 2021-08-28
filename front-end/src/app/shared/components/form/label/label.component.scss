@@ -1,0 +1,26 @@
+@import "ha-colors";
+
+.label-container {
+  margin: 0 0 2px;
+
+  .label {
+    width: 100%;
+
+    &--default {
+      font-weight: 500;
+      color: $color-seal;
+      @extend .label;
+    }
+
+    &--informative {
+      font-size: 13px;
+      text-transform: none;
+      font-weight: 500;
+
+      &.label-error {
+        color: $color-error;
+      }
+    }
+  }
+
+}

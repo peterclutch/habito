@@ -1,0 +1,11 @@
+@import "ha-colors";
+
+.card {
+  margin: 0 auto;
+  max-width: 950px;
+  min-height: 500px;
+  background: $color-white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 0 rgba(22, 43, 102, .05);
+  padding: 12px;
+}

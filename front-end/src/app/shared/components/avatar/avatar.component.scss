@@ -1,0 +1,37 @@
+@import "ha-colors";
+
+.avatar {
+  background: $color-primary;
+  background: linear-gradient(var(--degree), $color-primary, $color-secondary, $color-tertiary);
+  background-size: 200% 200%;
+
+  color: $color-white;
+  text-align: center;
+  border-radius: 7px;
+  overflow: hidden;
+  text-transform: uppercase;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+
+  &--large {
+    width: 132px;
+    height: 132px;
+    min-width: 132px;
+    line-height: 132px;
+    @extend .avatar;
+  }
+
+  &--small {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    line-height: 45px;
+    font-size: 22px;
+    @extend .avatar;
+  }
+}
+.empty {
+  background: $color-smoke;
+}

@@ -1,0 +1,12 @@
+@import "ha-colors";
+
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  color: $color-text !important;
+  background-color: $color-background;
+}
+
+a {
+  color: $color-text !important;
+}

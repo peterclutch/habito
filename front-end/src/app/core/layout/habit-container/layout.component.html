@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="habits">
+    <div class="user" (click)="toAccount()">
+      <ha-avatar initials="PH"></ha-avatar>
+      <div>
+        <div>Peter Hallum</div>
+        <div>peterhallum@hotmail.com</div>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="habit" routerLinkActive="active" routerLink="/home">
+        <div class="habit__emoji">🪴</div>
+        <div class="habit__title">Dashboard</div>
+        <img alt="" src="assets/svg/ic-chevron-right.svg">
+      </div>
+      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 1]">
+        <div class="habit__emoji">🧗</div>
+        <div class="habit__title">Climbing</div>
+        <img alt="" src="assets/svg/ic-chevron-right.svg">
+      </div>
+      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 2]">
+        <div class="habit__emoji">🧘</div>
+        <div class="habit__title">Yoga</div>
+        <img alt="" src="assets/svg/ic-chevron-right.svg">
+      </div>
+      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 3]">
+        <div class="habit__emoji">🥤</div>
+        <div class="habit__title">Junk food</div>
+        <img alt="" src="assets/svg/ic-chevron-right.svg">
+      </div>
+    </div>
+
+    <div class="add-habit">
+      <div class="add-habit__button">
+        <img alt="" src="assets/svg/ic-add.svg">
+        <span>New habit</span>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

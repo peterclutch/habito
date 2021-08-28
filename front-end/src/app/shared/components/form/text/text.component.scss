@@ -1,0 +1,98 @@
+@import 'ha-colors';
+
+.text-container {
+  max-width: 100%;
+  min-height: 25px;
+  position: relative;
+
+  &__input {
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'] {
+      display: inline-flex;
+      border: solid 1px $color-smoke;
+      border-radius: 6px;
+      height: 54px;
+      width: 100%;
+      color: $color-midnight;
+      outline: none;
+      padding: 16px 36px 16px 14px;
+      font-size: 16px;
+
+      &:focus {
+        border-width: 2px;
+        padding: -1px;
+        border-color: $color-primary;
+      }
+
+      &:disabled {
+        background-color: $color-cloud;
+        border-color: $color-pearl;
+        color: $color-smoke;
+        cursor: not-allowed;
+      }
+    }
+
+    &.hasPrefix {
+
+      input {
+        padding-left: 46px;
+      }
+    }
+
+    &__prefix {
+      position: absolute;
+      height: 20px;
+      font-size: 20px;
+      top: 50%; // height / 2
+      color: $color-midnight;
+      transform: translateY(-50%);
+      left: 16px;
+    }
+  }
+}
+
+.text-clear {
+  position: absolute;
+  height: 16px;
+  font-size: 16px;
+  padding: 10px 0;
+  top: calc(50% - 6px); // height / 2
+  color: $color-midnight;
+  transform: translateY(-50%);
+  right: 16px;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: $color-smoke !important;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: $color-smoke !important;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: $color-smoke !important;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $color-smoke !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $color-smoke !important;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: $color-smoke !important;
+}

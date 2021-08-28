@@ -1,0 +1,22 @@
+<div class="text-container">
+  <div class="text-container__input" [ngClass]="{hasPrefix: prefixIcon }">
+    <em *ngIf="prefixIcon" nz-icon [nzType]="prefixIcon" class="text-container__input__prefix"></em>
+    <input
+      #input
+      [attr.maxlength]="maxlength"
+      [type]="type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [ngModel]="value"
+      (ngModelChange)="handleChange($event)"
+      (click)="$event.stopPropagation()"
+    />
+    <em
+      *ngIf="!isEmpty(value) && !disabled"
+      (click)="handleDelete(); $event.stopPropagation()"
+      class="text-clear"
+      nz-icon
+      nzType="ic-clear"
+    ></em>
+  </div>
+</div>
