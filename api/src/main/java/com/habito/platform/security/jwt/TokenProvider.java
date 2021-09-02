@@ -1,5 +1,6 @@
 package com.habito.platform.security.jwt;
 
+import com.habito.platform.security.HabitoUser;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -24,6 +25,7 @@ public class TokenProvider {
     private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
     private static final String AUTHORITIES_KEY = "auth";
+    private static final String JWT_USER_ID_KEY = "userId";
 
     private final Key key;
 
@@ -61,6 +63,7 @@ public class TokenProvider {
             .builder()
             .setSubject(authentication.getName())
             .claim(AUTHORITIES_KEY, authorities)
+            .claim(JWT_USER_ID_KEY, ((HabitoUser)authentication.getPrincipal()).getUserId())
             .signWith(key, SignatureAlgorithm.HS512)
             .setExpiration(validity)
             .compact();
@@ -75,7 +78,12 @@ public class TokenProvider {
             .map(SimpleGrantedAuthority::new)
             .collect(Collectors.toList());
 
-        User principal = new User(claims.getSubject(), "", authorities);
+        Long userId = null;
+        if (claims.containsKey(JWT_USER_ID_KEY)) {
+            userId = Long.valueOf(claims.get(JWT_USER_ID_KEY).toString());
+        }
+
+        User principal = new HabitoUser(claims.getSubject(), "", userId, authorities);
 
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }

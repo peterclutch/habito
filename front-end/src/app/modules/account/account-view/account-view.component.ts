@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../../login/login.service";
-import {Routes} from "../../../routes";
-import {Router} from "@angular/router";
+import { LoginService } from '../../login/login.service';
+import { Routes } from '../../../routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ha-account-view',

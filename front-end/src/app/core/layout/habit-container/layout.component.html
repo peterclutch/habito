@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div class="habits">
     <div class="user" (click)="toAccount()">
-      <ha-avatar initials="PH"></ha-avatar>
+      <ha-avatar [initials]="account | initials"></ha-avatar>
       <div>
-        <div>Peter Hallum</div>
-        <div>peterhallum@hotmail.com</div>
+        <div>{{ account?.firstName }} {{ account?.lastName }}</div>
+        <div>{{ account?.email }}</div>
       </div>
     </div>
 
@@ -14,25 +14,15 @@
         <div class="habit__title">Dashboard</div>
         <img alt="" src="assets/svg/ic-chevron-right.svg">
       </div>
-      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 1]">
-        <div class="habit__emoji">🧗</div>
-        <div class="habit__title">Climbing</div>
-        <img alt="" src="assets/svg/ic-chevron-right.svg">
-      </div>
-      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 2]">
-        <div class="habit__emoji">🧘</div>
-        <div class="habit__title">Yoga</div>
-        <img alt="" src="assets/svg/ic-chevron-right.svg">
-      </div>
-      <div class="habit" routerLinkActive="active" [routerLink]="['/habits/', 3]">
-        <div class="habit__emoji">🥤</div>
-        <div class="habit__title">Junk food</div>
+      <div *ngFor="let habit of habits" class="habit" routerLinkActive="active" [routerLink]="['/habits/', habit.id]">
+        <div class="habit__emoji">{{ habit.icon }}</div>
+        <div class="habit__title">{{ habit.title }}</div>
         <img alt="" src="assets/svg/ic-chevron-right.svg">
       </div>
     </div>
 
     <div class="add-habit">
-      <div class="add-habit__button">
+      <div class="add-habit__button" (click)="createHabit()">
         <img alt="" src="assets/svg/ic-add.svg">
         <span>New habit</span>
       </div>

@@ -1,9 +1,7 @@
-import {Injectable} from "@angular/core";
-import {ActivatedRouteSnapshot} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class DisplayedRouteService {
 
   findRouterData(routeSnapshot: ActivatedRouteSnapshot, dataKey: string): any {

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
-import {AutoUnsubscriber} from "../../../shared/util/auto-unsubscriber";
-import {DisplayedRouteService} from "../../../shared/service/displayed-route.service";
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { AutoUnsubscriber } from '../../../shared/util/auto-unsubscriber';
+import { DisplayedRouteService } from '../../../shared/service/displayed-route.service';
 
 @Component({
   selector: 'ha-main',

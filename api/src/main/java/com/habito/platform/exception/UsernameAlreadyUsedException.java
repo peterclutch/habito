@@ -1,4 +1,4 @@
-package com.habito.platform.service;
+package com.habito.platform.exception;
 
 public class UsernameAlreadyUsedException extends RuntimeException {
 

@@ -2,10 +2,13 @@ package com.habito.platform.security;
 
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import com.habito.platform.exception.SecurityContextWithoutUserIdException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -23,6 +26,23 @@ public final class SecurityUtils {
     public static Optional<String> getCurrentUserLogin() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         return Optional.ofNullable(extractPrincipal(securityContext.getAuthentication()));
+    }
+
+    public static Optional<Long> getCurrentUserId() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        return Optional.ofNullable(securityContext.getAuthentication())
+            .flatMap(
+                authentication -> {
+                    if (authentication.getPrincipal() instanceof User) {
+                        HabitoUser springSecurityUser = (HabitoUser) authentication.getPrincipal();
+                        return Optional.of(springSecurityUser.getUserId());
+                    }
+                    return Optional.empty();
+                });
+    }
+
+    public static Long getCurrentUserIdWhenAuthorized() {
+        return getCurrentUserId().orElseThrow(SecurityContextWithoutUserIdException::new);
     }
 
     private static String extractPrincipal(Authentication authentication) {

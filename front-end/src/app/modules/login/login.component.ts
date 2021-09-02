@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    this.loading = true;
     this.loginService
       .login({
         username: this.loginForm.get('username')!.value,
@@ -51,11 +52,13 @@ export class LoginComponent implements OnInit {
       .subscribe(
         () => {
           if (!this.router.getCurrentNavigation()) {
-            // There were no routing during login (eg from navigationToStoredUrl)
+            // No routing during login (eg from navigationToStoredUrl)
             this.router.navigate(['']);
           }
         },
-        () => {}
+        () => {
+          this.loading = false;
+        }
       );
   }
 

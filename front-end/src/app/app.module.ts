@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './core/layout/main/main.component';
 import { LayoutComponent } from './core/layout/habit-container/layout.component';
-import { AvatarComponent } from "./shared/components/avatar/avatar.component";
+import { AvatarComponent } from './shared/components/avatar/avatar.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { HabitComponent } from './modules/habit/habit.component';
@@ -24,6 +24,7 @@ import { CookieModule } from 'ngx-cookie';
 import { AccountViewComponent } from './modules/account/account-view/account-view.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { httpInterceptorProviders } from './core/interceptor';
+import { InitialsPipe } from './shared/pipe/initials.pipe';
 
 registerLocaleData(en);
 
@@ -39,7 +40,8 @@ registerLocaleData(en);
     LabelComponent,
     TextComponent,
     LoaderComponent,
-    AccountViewComponent
+    AccountViewComponent,
+    InitialsPipe
   ],
   imports: [
     BrowserModule,

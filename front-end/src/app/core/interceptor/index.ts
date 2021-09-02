@@ -1,8 +1,8 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import {AuthInterceptor} from "./auth.interceptor";
-import {AuthExpiredInterceptor} from "./auth-expired.interceptor";
-import {ErrorHandlerInterceptor} from "./error-handler.interceptor";
-import {NotificationInterceptor} from "./notification.interceptor";
+import { AuthInterceptor } from './auth.interceptor';
+import { AuthExpiredInterceptor } from './auth-expired.interceptor';
+import { ErrorHandlerInterceptor } from './error-handler.interceptor';
+import { NotificationInterceptor } from './notification.interceptor';
 
 export const httpInterceptorProviders = [
   {
