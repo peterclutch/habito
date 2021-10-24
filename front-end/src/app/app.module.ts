@@ -29,6 +29,7 @@ import { MenuOverlayService } from './shared/modal/menu-overlay.service';
 import { HabitAddComponent } from './core/layout/habit-container/habit-add/habit-add.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ButtonDirective } from './shared/directive/button/button.directive';
+import { EmojiPickerComponent } from './shared/component/form/emoji-picker/emoji-picker.component';
 
 registerLocaleData(en);
 
@@ -48,6 +49,7 @@ registerLocaleData(en);
     InitialsPipe,
     HabitAddComponent,
     ButtonDirective,
+    EmojiPickerComponent,
   ],
   imports: [
     BrowserModule,

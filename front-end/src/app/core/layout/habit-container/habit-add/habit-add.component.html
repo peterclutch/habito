@@ -1,29 +1,26 @@
 <div class="container">
   <div class="header">
-    <div>🪴 Create new habit</div>
+    <div>New habit</div>
     <em nz-icon nzType="ic-clear" (click)="close()"></em>
   </div>
 
   <form [formGroup]="habitForm">
-    <div>
-      <ha-label for="icon">Icon</ha-label>
-      <ha-text
-        name="icon"
-        type="text"
-        placeholder="Habit icon"
-        formControlName="icon"
-      ></ha-text>
-    </div>
+    <div class="input-line">
+      <div>
+        <ha-label for="icon">Emoji</ha-label>
+        <ha-emoji-picker name="icon" formControlName="icon"></ha-emoji-picker>
+      </div>
 
-    <div>
-      <ha-label for="title">Title</ha-label>
-      <ha-text
-        name="title"
-        type="text"
-        placeholder="Habit title"
-        formControlName="title"
-        [autoSelect]="true"
-      ></ha-text>
+      <div>
+        <ha-label for="title">Title</ha-label>
+        <ha-text
+          name="title"
+          type="text"
+          placeholder="Habit's title"
+          formControlName="title"
+          [autoSelect]="true"
+        ></ha-text>
+      </div>
     </div>
 
     <div class="buttons">
