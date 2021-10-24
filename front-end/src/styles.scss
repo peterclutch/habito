@@ -1,5 +1,9 @@
 @import "ha-colors";
 
+@import "ha_shared";
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
@@ -9,4 +13,9 @@ body {
 
 a {
   color: $color-text !important;
+}
+
+.modal-background {
+  background-color: hsla(333, 70%, 95%, 0.35) !important;
+  backdrop-filter: blur(2px) !important;
 }

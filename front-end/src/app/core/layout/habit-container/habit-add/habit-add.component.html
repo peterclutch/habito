@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="header">
+    <div>🪴 Create new habit</div>
+    <em nz-icon nzType="ic-clear" (click)="close()"></em>
+  </div>
+
+  <form [formGroup]="habitForm">
+    <div>
+      <ha-label for="icon">Icon</ha-label>
+      <ha-text
+        name="icon"
+        type="text"
+        placeholder="Habit icon"
+        formControlName="icon"
+      ></ha-text>
+    </div>
+
+    <div>
+      <ha-label for="title">Title</ha-label>
+      <ha-text
+        name="title"
+        type="text"
+        placeholder="Habit title"
+        formControlName="title"
+        [autoSelect]="true"
+      ></ha-text>
+    </div>
+
+    <div class="buttons">
+      <button
+        haButton
+        [haButtonType]="buttonType.HERO_PRIMARY"
+        [style.--degree]="degree"
+        [disabled]="habitForm.invalid || loading"
+        (click)="createHabit()"
+      >
+        <ha-loader *ngIf="loading"></ha-loader>
+        <span>Create</span>
+      </button>
+
+      <button
+        haButton
+        [haButtonType]="buttonType.HERO_SECONDARY"
+        (click)="close()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

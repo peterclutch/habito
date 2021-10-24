@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Routes } from '../../../routes';
 import { AccountService } from '../../auth/account.service';
-import { Account } from '../../../shared/models/account.model';
+import { Account } from '../../../shared/model/account.model';
 import { HabitService } from '../../../shared/service/habit.service';
-import { Habit } from '../../../shared/models/habit.model';
+import { Habit } from '../../../shared/model/habit.model';
+import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 
 @Component({
   selector: 'ha-layout',
@@ -18,8 +19,13 @@ export class LayoutComponent implements OnInit {
   constructor(
     private router: Router,
     private accountService: AccountService,
-    private habitService: HabitService
+    private habitService: HabitService,
+    private menuOverlayService: MenuOverlayService
   ) {}
+
+  showMenu() {
+    this.menuOverlayService.open({}, (habit: Habit) => { this.habits.push(habit); });
+  }
 
   toAccount() {
     this.router.navigate([Routes.accountView()]);
@@ -35,22 +41,5 @@ export class LayoutComponent implements OnInit {
     this.habitService.getAll().subscribe(habits => {
       this.habits = habits;
     })
-  }
-
-  createHabit(): void {
-    this.habitService.create({
-      title: 'testy',
-      icon: '🍆'
-    }).subscribe(habit => {
-      this.habits.push(habit);
-    });
-  }
-
-  deleteHabit(id: number | undefined): void {
-    if (id) {
-      this.habitService.delete(id).subscribe(() => {
-        this.habits = this.habits.filter(habit => habit.id != id);
-      })
-    }
   }
 }

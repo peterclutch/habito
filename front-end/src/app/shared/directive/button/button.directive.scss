@@ -1,0 +1,55 @@
+@import "ha-colors";
+
+.hero {
+  min-width: 156px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: 0;
+  border-radius: 6px;
+  height: 54px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all .3s;
+  outline-style: none;
+  cursor: pointer;
+  text-decoration: none !important;
+  position: relative;
+
+  &.hero-primary {
+    color: $color-white;
+    background: $color-primary;
+    background: linear-gradient(var(--degree), $color-primary, $color-secondary);
+    background-size: 200% 100%;
+  }
+
+  &.hero-secondary {
+    color: $color-secondary;
+    background: $color-white;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    left: 6px;
+    right: 6px;
+    height: 20%;
+    background: linear-gradient(hsla(0,0%,100%,.15),hsla(0,0%,100%,0));
+    border-radius: 20px 20px 100px 100px/14px 14px 30px 30px;
+    pointer-events: none;
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: no-drop !important;
+    background: $color-pearl;
+    color: $color-smoke;
+  }
+}

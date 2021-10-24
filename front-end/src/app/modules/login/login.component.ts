@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { AccountService } from '../../core/auth/account.service';
+import { ButtonType } from '../../shared/directive/button/button.directive';
 
 @Component({
   selector: 'ha-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
   _degree: number = 0;
+  buttonType: typeof ButtonType = ButtonType;
 
   constructor(
     private formBuilder: FormBuilder,

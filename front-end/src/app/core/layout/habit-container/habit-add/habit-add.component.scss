@@ -1,0 +1,50 @@
+@import "ha-colors";
+
+.container {
+  min-width: 420px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $color-white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 0 rgba(22, 43, 102, .05);
+  overflow: hidden;
+  padding: 24px;
+}
+
+form {
+  width: 100%;
+
+  > * {
+    margin: 24px 0;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.header {
+  width: 100%;
+  margin: 12px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    font-size: 20px;
+    font-weight: 500;
+    color: $color-primary;
+  }
+
+  > em {
+    font-size: 24px;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary
+    }
+  }
+}

@@ -5,7 +5,7 @@ import {Observable, of, ReplaySubject} from 'rxjs';
 import { shareReplay, tap, catchError } from 'rxjs/operators';
 
 import { SERVER_API_URL } from '../../app.constants';
-import { Account } from '../../shared/models/account.model';
+import { Account } from '../../shared/model/account.model';
 import { StateStorageService } from './state-storage.service';
 
 @Injectable({ providedIn: 'root' })

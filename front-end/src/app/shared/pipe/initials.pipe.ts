@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Account } from '../models/account.model';
+import { Account } from '../model/account.model';
 
 @Pipe({name: 'initials'})
 export class InitialsPipe implements PipeTransform {

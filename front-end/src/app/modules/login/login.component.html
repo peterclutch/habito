@@ -30,6 +30,8 @@
       </div>
     </div>
     <button
+      haButton
+      [haButtonType]="buttonType.HERO_PRIMARY"
       [style.--degree]="degree"
       [disabled]="loginForm.invalid || loading"
       (click)="login()"
