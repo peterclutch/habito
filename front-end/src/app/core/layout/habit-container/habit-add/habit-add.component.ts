@@ -16,7 +16,7 @@ export class HabitAddComponent implements OnInit {
   loading: boolean = false;
   habitForm: FormGroup = this.formBuilder.group({
     title: ['', [Validators.required]],
-    icon: ['📦', [Validators.required]]
+    icon: ['', [Validators.required]]
   })
   buttonType: typeof ButtonType = ButtonType;
 

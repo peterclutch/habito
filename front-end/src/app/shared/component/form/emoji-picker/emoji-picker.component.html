@@ -1,0 +1,14 @@
+<div class="emoji-picker">
+  <div class="display" (click)="toggle()" (document:click)="onMouseClick($event)" [class.active]="toggled">
+    <div class="emoji">{{ selected }}</div>
+    <em nz-icon nzType="ic-chevron-down"></em>
+  </div>
+  <div class="radio-container" [hidden]="!toggled">
+    <div class="radio" *ngFor="let emoji of emojis">
+      <label>
+        <div class="emoji">{{ emoji }}</div>
+        <input class="emoji__input" name="emoji" type="radio" [value]="emoji" ngModel="emoji" (ngModelChange)="handleChange($event)">
+      </label>
+    </div>
+  </div>
+</div>
