@@ -6,7 +6,7 @@
   <div class="radio-container" [hidden]="!toggled">
     <div class="radio" *ngFor="let emoji of emojis">
       <label>
-        <div class="emoji">{{ emoji }}</div>
+        <div class="emoji">{{ emoji }}</div>test
         <input class="emoji__input" name="emoji" type="radio" [value]="emoji" ngModel="emoji" (ngModelChange)="handleChange($event)">
       </label>
     </div>
