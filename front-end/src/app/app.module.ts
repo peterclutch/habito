@@ -26,12 +26,13 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { httpInterceptorProviders } from './core/interceptor';
 import { InitialsPipe } from './shared/pipe/initials.pipe';
 import { MenuOverlayService } from './shared/modal/menu-overlay.service';
-import { HabitAddComponent } from './core/layout/habit-container/habit-add/habit-add.component';
+import { HabitAddModalComponent } from './shared/modal/habit-add-modal/habit-add-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ButtonDirective } from './shared/directive/button/button.directive';
 import { EmojiPickerComponent } from './shared/component/form/emoji-picker/emoji-picker.component';
 import { DotMenuComponent } from './shared/component/dot-menu/dot-menu.component';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { ConfirmModalComponent } from './shared/modal/confirm-modal/confirm-modal.component';
 
 registerLocaleData(en);
 
@@ -49,10 +50,11 @@ registerLocaleData(en);
     LoaderComponent,
     AccountViewComponent,
     InitialsPipe,
-    HabitAddComponent,
+    HabitAddModalComponent,
     ButtonDirective,
     EmojiPickerComponent,
     DotMenuComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,7 @@ registerLocaleData(en);
   ],
   bootstrap: [MainComponent],
   entryComponents: [
-    HabitAddComponent
+    HabitAddModalComponent
   ]
 })
 export class AppModule { }

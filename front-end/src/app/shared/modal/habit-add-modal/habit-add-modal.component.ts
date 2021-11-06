@@ -1,18 +1,18 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {ModalOverlayRef} from '../../../../shared/modal/modal-overlay-ref';
-import {Router} from '@angular/router';
-import {HabitService} from '../../../../shared/service/habit.service';
-import {HABITO_MODAL_DATA} from '../../../../shared/modal/modal.token';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ButtonType } from '../../../../shared/directive/button/button.directive';
-import { Routes } from '../../../../routes';
-import { Habit } from '../../../../shared/model/habit.model';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { ModalOverlayRef } from '../modal-overlay-ref';
+import { Router } from '@angular/router';
+import { HabitService } from '../../service/habit.service';
+import { HABITO_MODAL_DATA } from '../modal.token';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ButtonType } from '../../directive/button/button.directive';
+import { Routes } from '../../../routes';
+import { Habit } from '../../model/habit.model';
 
 @Component({
-  templateUrl: './habit-add.component.html',
-  styleUrls: ['./habit-add.component.scss']
+  templateUrl: './habit-add-modal.component.html',
+  styleUrls: ['./habit-add-modal.component.scss']
 })
-export class HabitAddComponent implements OnInit {
+export class HabitAddModalComponent implements OnInit {
 
   _degree: number = 0;
   loading: boolean = false;
@@ -20,7 +20,7 @@ export class HabitAddComponent implements OnInit {
     title: ['', [Validators.required]],
     icon: ['', [Validators.required]]
   })
-  buttonType: typeof ButtonType = ButtonType;
+  buttonType = ButtonType;
 
   constructor(
     private formBuilder: FormBuilder,

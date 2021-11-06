@@ -1,17 +1,17 @@
 import { Injectable, Injector } from '@angular/core';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ComponentType, Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { ModalOverlayRef } from './modal-overlay-ref';
-import { HabitAddComponent } from '../../core/layout/habit-container/habit-add/habit-add.component';
+import { HabitAddModalComponent } from './habit-add-modal/habit-add-modal.component';
 import { HABITO_MODAL_DATA } from './modal.token';
 
-interface FilePreviewDialogConfig {
+interface ModalConfig {
   panelClass?: string;
   hasBackdrop?: boolean;
   backdropClass?: string;
 }
 
-const DEFAULT_CONFIG: FilePreviewDialogConfig = {
+const DEFAULT_CONFIG: ModalConfig = {
   hasBackdrop: true,
   panelClass: 'menu-panel',
   backdropClass: 'modal-background'
@@ -23,12 +23,12 @@ export class MenuOverlayService {
   // Inject overlay service
   constructor(private injector: Injector, private overlay: Overlay) { }
 
-  open(config: FilePreviewDialogConfig = {}, action: any = {}) {
+  open(config: ModalConfig = {}, action: any = {}, modal: ComponentType<any> = HabitAddModalComponent) {
     // Override default configuration
-    const dialogConfig = { ...DEFAULT_CONFIG, ...config };
+    const modalConfig = { ...DEFAULT_CONFIG, ...config };
 
     // Returns an OverlayRef which is a PortalHost
-    const overlayRef = this.createOverlay(dialogConfig);
+    const overlayRef = this.createOverlay(modalConfig);
 
     // Instantiate remote control
     const dialogRef = new ModalOverlayRef(overlayRef);
@@ -40,7 +40,7 @@ export class MenuOverlayService {
     const injector = new PortalInjector(this.injector, injectionTokens);
 
     // Create ComponentPortal that can be attached to a PortalHost
-    const filePreviewPortal = new ComponentPortal(HabitAddComponent, null, injector);
+    const filePreviewPortal = new ComponentPortal(modal, null, injector);
 
     // Attach ComponentPortal to PortalHost
     overlayRef.attach(filePreviewPortal);
@@ -52,12 +52,12 @@ export class MenuOverlayService {
     return dialogRef;
   }
 
-  private createOverlay(config: FilePreviewDialogConfig) {
+  private createOverlay(config: ModalConfig) {
     const overlayConfig = this.getOverlayConfig(config);
     return this.overlay.create(overlayConfig);
   }
 
-  private getOverlayConfig(config: FilePreviewDialogConfig): OverlayConfig {
+  private getOverlayConfig(config: ModalConfig): OverlayConfig {
     const positionStrategy = this.overlay.position()
       .global()
       .centerHorizontally()

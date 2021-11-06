@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="header">
+  <header>
     <div>New habit</div>
     <em nz-icon nzType="ic-clear" (click)="close()"></em>
-  </div>
+  </header>
 
   <form [formGroup]="habitForm">
     <div class="input-line">
@@ -37,7 +37,7 @@
 
       <button
         haButton
-        [haButtonType]="buttonType.HERO_SECONDARY"
+        [haButtonType]="buttonType.HERO_SIMPLE"
         (click)="close()">
         Cancel
       </button>

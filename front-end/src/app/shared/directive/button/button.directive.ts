@@ -9,6 +9,7 @@ export class ButtonDirective implements OnChanges {
   public buttonTypeToClass = new Map<ButtonType, string>([
     [ButtonType.HERO_PRIMARY, 'hero hero-primary'],
     [ButtonType.HERO_SECONDARY, 'hero hero-secondary'],
+    [ButtonType.HERO_SIMPLE, 'hero hero-simple'],
   ]);
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
@@ -36,4 +37,5 @@ export class ButtonDirective implements OnChanges {
 export enum ButtonType {
   HERO_PRIMARY = 'HERO_PRIMARY',
   HERO_SECONDARY = 'HERO_SECONDARY',
+  HERO_SIMPLE = 'HERO_SIMPLE',
 }

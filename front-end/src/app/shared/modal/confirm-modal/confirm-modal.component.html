@@ -1,0 +1,27 @@
+<div class="container">
+  <header>
+    <div>Delete habit?</div>
+    <em nz-icon nzType="ic-clear" (click)="close()"></em>
+  </header>
+
+  <div class="warning">
+    By deleting, all data will be permanently removed.
+  </div>
+
+  <div class="buttons">
+    <button
+      haButton
+      [haButtonType]="buttonType.HERO_SECONDARY"
+      (click)="confirm()"
+    >
+      <span>Confirm</span>
+    </button>
+
+    <button
+      haButton
+      [haButtonType]="buttonType.HERO_SIMPLE"
+      (click)="close()">
+      Cancel
+    </button>
+  </div>
+</div>

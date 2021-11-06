@@ -34,7 +34,7 @@ form {
   }
 }
 
-.header {
+header {
   width: 100%;
   margin: 12px 0 24px;
   display: flex;
@@ -52,7 +52,7 @@ form {
     cursor: pointer;
 
     &:hover {
-      color: $color-secondary
+      color: $color-primary;
     }
   }
 }

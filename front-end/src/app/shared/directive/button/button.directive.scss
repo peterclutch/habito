@@ -29,6 +29,11 @@
   }
 
   &.hero-secondary {
+    color: $color-white;
+    background: $color-secondary;
+  }
+
+  &.hero-simple {
     color: $color-secondary;
     background: $color-white;
   }
