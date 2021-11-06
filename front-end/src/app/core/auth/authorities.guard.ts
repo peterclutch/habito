@@ -5,6 +5,7 @@ import { AccountService } from './account.service';
 import { Observable } from 'rxjs';
 import { StateStorageService } from './state-storage.service';
 import { map } from 'rxjs/operators';
+import { Routes } from '../../routes';
 
 @Injectable({ providedIn: 'root' })
 export class AuthoritiesGuard implements CanActivate {
@@ -28,7 +29,7 @@ export class AuthoritiesGuard implements CanActivate {
         }
 
         this.stateStorageService.storeUrl(state.url);
-        this.router.navigate(['/login']);
+        this.router.navigate([Routes.login()]);
         return false;
       })
     );

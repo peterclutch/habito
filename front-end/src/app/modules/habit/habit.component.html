@@ -1,3 +1,9 @@
 <ha-card>
-  <p>Habit: {{habitId}}</p>
+  <header>
+    <div>{{ habit?.title }}</div>
+    <ha-dot-menu
+      [actions]="actions"
+      [entity]="habit"
+    ></ha-dot-menu>
+  </header>
 </ha-card>

@@ -28,6 +28,12 @@ public class HabitResource {
         return ResponseEntity.ok().body(result);
     }
 
+    @GetMapping("/habits/{id}")
+    public ResponseEntity<HabitDto> getOne(@PathVariable Long id) {
+        var result = habitService.findById(id).map(habitMapper::toDto);
+        return result.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping("/habits")
     public ResponseEntity<HabitDto> create(@Valid @RequestBody HabitDto dto) throws URISyntaxException {
         Habit savedEntity = habitService.create(habitMapper.toEntity(dto));

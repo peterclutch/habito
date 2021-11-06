@@ -30,6 +30,8 @@ import { HabitAddComponent } from './core/layout/habit-container/habit-add/habit
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ButtonDirective } from './shared/directive/button/button.directive';
 import { EmojiPickerComponent } from './shared/component/form/emoji-picker/emoji-picker.component';
+import { DotMenuComponent } from './shared/component/dot-menu/dot-menu.component';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 
 registerLocaleData(en);
 
@@ -50,6 +52,7 @@ registerLocaleData(en);
     HabitAddComponent,
     ButtonDirective,
     EmojiPickerComponent,
+    DotMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     NzIconModule.forRoot(icons),
+    NzPopoverModule,
     CookieModule.forRoot(),
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     OverlayModule

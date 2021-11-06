@@ -1,0 +1,55 @@
+@import "ha-colors";
+
+.action-menu {
+  cursor: pointer;
+  display: flex;
+  width: 30px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+
+  em {
+    font-size: 16px;
+  }
+
+  &:hover {
+    em {
+      color: $color-primary;
+    }
+  }
+}
+
+.actions {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .action {
+    height: 48px;
+    width: 100%;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+
+    &:not(:first-child) {
+      border-top: 1px solid hsla(245, 100%, 60%, 10%);
+    }
+
+    em {
+      vertical-align: 0;
+      font-size: 20px;
+      margin-right: 12px;
+    }
+
+    &:hover {
+      background-color: hsl(245, 100%, 99%);
+
+      em {
+        color: $color-primary;
+      }
+    }
+  }
+}

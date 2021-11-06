@@ -59,9 +59,7 @@ export class EmojiPickerComponent implements ControlValueAccessor {
   }
 
   onMouseClick(event: Event) {
-    console.log(event);
     const inputSource = this.getInputSource(event);
-    console.log(inputSource)
     if (this.toggled && inputSource && !EmojiPickerComponent.isEmojiPickerElement(inputSource)) {
       this.toggled = false;
     }

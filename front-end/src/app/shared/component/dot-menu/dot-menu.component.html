@@ -1,0 +1,23 @@
+<div nz-popover
+     [nzPopoverContent]="actionContent"
+     nzPopoverTrigger="click"
+     [(nzPopoverVisible)]="visible"
+     nzPopoverPlacement="bottomRight"
+     class="action-menu"
+     (click)="onEvent($event)"
+>
+  <em nz-icon nzType="ic-more"></em>
+</div>
+
+<ng-template #actionContent>
+  <div class="actions">
+    <a
+      class="action"
+      *ngFor="let action of actions"
+      (click)="actionClick(action, $event)"
+    >
+      <em nz-icon *ngIf="action.icon" [nzType]="action.icon"></em>
+      {{ action.label }}
+    </a>
+  </div>
+</ng-template>

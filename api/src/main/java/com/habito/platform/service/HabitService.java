@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -18,6 +19,11 @@ import java.util.List;
 public class HabitService {
 
     private final HabitRepository habitRepository;
+
+    public Optional<Habit> findById(Long id) {
+        var userId = SecurityUtils.getCurrentUserIdWhenAuthorized();
+        return habitRepository.findByIdAndUserId(id, userId);
+    }
 
     public List<Habit> findAll() {
         var userId = SecurityUtils.getCurrentUserIdWhenAuthorized();

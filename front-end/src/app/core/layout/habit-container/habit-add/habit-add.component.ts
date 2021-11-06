@@ -5,6 +5,8 @@ import {HabitService} from '../../../../shared/service/habit.service';
 import {HABITO_MODAL_DATA} from '../../../../shared/modal/modal.token';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ButtonType } from '../../../../shared/directive/button/button.directive';
+import { Routes } from '../../../../routes';
+import { Habit } from '../../../../shared/model/habit.model';
 
 @Component({
   templateUrl: './habit-add.component.html',
@@ -39,10 +41,10 @@ export class HabitAddComponent implements OnInit {
   createHabit(): void {
     this.loading = true;
 
-    this.habitService.create(this.habitForm.value).subscribe(habit => {
+    this.habitService.create(this.habitForm.value).subscribe((habit: Habit) => {
       this.close();
       this.action(habit);
-      this.router.navigate(['/habits/', habit.id])
+      this.router.navigate([Routes.habits(habit.id)])
     }, () => {
       this.loading = false;
     });

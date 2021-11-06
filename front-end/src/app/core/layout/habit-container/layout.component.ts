@@ -15,6 +15,7 @@ import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 export class LayoutComponent implements OnInit {
   account: Account | null = null;
   habits: Habit[] = [];
+  Routes = Routes;
 
   constructor(
     private router: Router,
@@ -24,7 +25,7 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   showMenu() {
-    this.menuOverlayService.open({}, (habit: Habit) => { this.habits.push(habit); });
+    this.menuOverlayService.open({}, (habit: Habit) => { this.habitService.updateHabits() });
   }
 
   toAccount() {
@@ -38,7 +39,7 @@ export class LayoutComponent implements OnInit {
       }
     });
 
-    this.habitService.getAll().subscribe(habits => {
+    this.habitService.habits.subscribe(habits => {
       this.habits = habits;
     })
   }

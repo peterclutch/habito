@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../modules/login/login.service';
 import { StateStorageService } from '../auth/state-storage.service';
 import { AccountService } from '../auth/account.service';
+import { Routes } from '../../routes';
 
 @Injectable()
 export class AuthExpiredInterceptor implements HttpInterceptor {
@@ -23,7 +24,7 @@ export class AuthExpiredInterceptor implements HttpInterceptor {
           if (err.status === 401 && err.url && !err.url.includes('api/account') && this.accountService.isAuthenticated()) {
             this.stateStorageService.storeUrl(this.router.routerState.snapshot.url);
             this.loginService.logout();
-            this.router.navigate(['/login']);
+            this.router.navigate([Routes.login()]);
           }
         },
       })

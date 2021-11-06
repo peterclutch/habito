@@ -18,4 +18,6 @@ import java.util.Optional;
 public interface HabitRepository extends JpaRepository<Habit, Long> {
 
     List<Habit> findAllByUserId(@Param("userId") Long userId);
+
+    Optional<Habit> findByIdAndUserId(@Param("id") Long id, @Param("userId") Long userId);
 }

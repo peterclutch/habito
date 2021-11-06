@@ -5,6 +5,7 @@ import { HabitComponent } from './modules/habit/habit.component';
 import { LoginComponent } from './modules/login/login.component';
 import { AccountViewComponent } from './modules/account/account-view/account-view.component';
 import { AuthoritiesGuard } from './core/auth/authorities.guard';
+import { HabitResolver } from './shared/resolver/habit.resolver';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -42,6 +43,9 @@ const routes: Routes = [
     path: 'habits/:id',
     component: HabitComponent,
     canActivate: [AuthoritiesGuard],
+    resolve: {
+      habit: HabitResolver
+    }
   }
 ];
 

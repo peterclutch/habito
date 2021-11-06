@@ -9,12 +9,12 @@
     </div>
 
     <div class="list">
-      <div class="habit" routerLinkActive="active" routerLink="/home">
+      <div class="habit" routerLinkActive="active" [routerLink]="Routes.home()">
         <div class="habit__emoji">🪴</div>
         <div class="habit__title">Dashboard</div>
         <img alt="" src="assets/svg/ic-chevron-right.svg">
       </div>
-      <div *ngFor="let habit of habits" class="habit" routerLinkActive="active" [routerLink]="['/habits/', habit.id]">
+      <div *ngFor="let habit of habits" class="habit" routerLinkActive="active" [routerLink]="Routes.habits(habit.id)">
         <div class="habit__emoji">{{ habit.icon }}</div>
         <div class="habit__title">{{ habit.title }}</div>
         <img alt="" src="assets/svg/ic-chevron-right.svg">

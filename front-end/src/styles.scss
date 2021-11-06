@@ -19,3 +19,16 @@ a {
   background-color: hsla(333, 70%, 95%, 0.35) !important;
   backdrop-filter: blur(2px) !important;
 }
+
+/* NG-ZORRO STYLING */
+$border-radius: 10px;
+
+.ant-popover-inner {
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 0 20px 0 rgb(22 43 102 / 20%);
+
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}
