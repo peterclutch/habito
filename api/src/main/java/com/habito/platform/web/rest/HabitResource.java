@@ -2,7 +2,8 @@ package com.habito.platform.web.rest;
 
 import com.habito.platform.domain.Habit;
 import com.habito.platform.service.HabitService;
-import com.habito.platform.service.dto.HabitDto;
+import com.habito.platform.service.dto.HabitSimpleDto;
+import com.habito.platform.service.dto.HabitViewDto;
 import com.habito.platform.service.mapper.HabitMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,19 +24,19 @@ public class HabitResource {
     private final HabitMapper habitMapper;
 
     @GetMapping("/habits")
-    public ResponseEntity<List<HabitDto>> getAll() {
+    public ResponseEntity<List<HabitSimpleDto>> getAll() {
         var result = habitMapper.toDto(habitService.findAll());
         return ResponseEntity.ok().body(result);
     }
 
     @GetMapping("/habits/{id}")
-    public ResponseEntity<HabitDto> getOne(@PathVariable Long id) {
-        var result = habitService.findById(id).map(habitMapper::toDto);
+    public ResponseEntity<HabitViewDto> getOne(@PathVariable Long id) {
+        var result = habitService.findById(id).map(habitMapper::toViewDto);
         return result.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/habits")
-    public ResponseEntity<HabitDto> create(@Valid @RequestBody HabitDto dto) throws URISyntaxException {
+    public ResponseEntity<HabitSimpleDto> create(@Valid @RequestBody HabitSimpleDto dto) throws URISyntaxException {
         Habit savedEntity = habitService.create(habitMapper.toEntity(dto));
 
         return ResponseEntity

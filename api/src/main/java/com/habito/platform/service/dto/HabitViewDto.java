@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Set;
 
 @Data
-public class HabitDto {
+public class HabitViewDto {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
@@ -16,4 +19,7 @@ public class HabitDto {
 
     @NotBlank
     private String title;
+
+    @NotNull
+    private Set<LocalDate> checks;
 }
