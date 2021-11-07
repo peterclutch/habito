@@ -6,7 +6,7 @@ import { HABITO_MODAL_DATA } from '../modal.token';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ButtonType } from '../../directive/button/button.directive';
 import { Routes } from '../../../routes';
-import { Habit } from '../../model/habit.model';
+import { IHabit } from '../../model/habit.model';
 
 @Component({
   templateUrl: './habit-add-modal.component.html',
@@ -41,7 +41,7 @@ export class HabitAddModalComponent implements OnInit {
   createHabit(): void {
     this.loading = true;
 
-    this.habitService.create(this.habitForm.value).subscribe((habit: Habit) => {
+    this.habitService.create(this.habitForm.value).subscribe((habit: IHabit) => {
       this.close();
       this.action(habit);
       this.router.navigate([Routes.habits(habit.id)])

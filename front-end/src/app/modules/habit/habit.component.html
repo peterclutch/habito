@@ -1,9 +1,17 @@
 <ha-card>
   <header>
-    <div>{{ habit?.title }}</div>
+    <div>{{ habit.title }}</div>
     <ha-dot-menu
       [actions]="actions"
       [entity]="habit"
     ></ha-dot-menu>
   </header>
+
+  <div (click)="createCheck()">
+    Lorem ipsum
+  </div>
+
+  <div *ngFor="let check of habit.checks" (click)="deleteCheck(check.id)">
+    {{ check.date }}
+  </div>
 </ha-card>

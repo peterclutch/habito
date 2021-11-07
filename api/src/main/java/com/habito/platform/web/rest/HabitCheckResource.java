@@ -40,8 +40,8 @@ public class HabitCheckResource {
     public ResponseEntity<HabitViewDto> delete(@PathVariable Long id) {
         Habit habit = habitService.findByCheckId(id).orElseThrow(RuntimeException::new);
         habit.removeCheck(id);
-        habit = habitService.save(habit);
+        habitService.save(habit);
 
-        return ResponseEntity.ok().body(habitMapper.toViewDto(habit));
+        return ResponseEntity.noContent().build();
     }
 }

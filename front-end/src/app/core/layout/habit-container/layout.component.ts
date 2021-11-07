@@ -4,7 +4,7 @@ import { Routes } from '../../../routes';
 import { AccountService } from '../../auth/account.service';
 import { Account } from '../../../shared/model/account.model';
 import { HabitService } from '../../../shared/service/habit.service';
-import { Habit } from '../../../shared/model/habit.model';
+import { IHabit } from '../../../shared/model/habit.model';
 import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 })
 export class LayoutComponent implements OnInit {
   account: Account | null = null;
-  habits: Habit[] = [];
+  habits: IHabit[] = [];
   Routes = Routes;
 
   constructor(
@@ -25,7 +25,7 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   showMenu() {
-    this.menuOverlayService.open({}, (habit: Habit) => { this.habitService.updateHabits() });
+    this.menuOverlayService.open({}, (habit: IHabit) => { this.habitService.updateHabits() });
   }
 
   toAccount() {
