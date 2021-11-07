@@ -19,6 +19,9 @@ public interface HabitRepository extends JpaRepository<Habit, Long> {
 
     List<Habit> findAllByUserId(@Param("userId") Long userId);
 
-    @Query("select h from Habit h left join fetch h.habitChecks where h.id = :id and h.user.id = :userId")
+    @Query("select h from Habit h left join fetch h.checks where h.id = :id and h.user.id = :userId")
     Optional<Habit> findByIdAndUserId(@Param("id") Long id, @Param("userId") Long userId);
+
+    @Query("select h from Habit h left join fetch h.checks c where c.id = :checkId and h.user.id = :userId")
+    Optional<Habit> findByCheckIdAndUserId(@Param("checkId") Long checkId, @Param("userId") Long userId);
 }

@@ -16,10 +16,6 @@ public class HabitCheck {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "habit_id", updatable = false)
-    private Habit habit;
-
     @NotNull
     @Column(name = "date", nullable = false)
     LocalDate date;

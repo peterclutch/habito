@@ -24,8 +24,11 @@ public class Habit {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy = "habit")
-    private Set<HabitCheck> habitChecks;
+    @OneToMany(
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    @JoinColumn(name = "habit_id", referencedColumnName = "id", nullable = false)
+    private Set<HabitCheck> checks;
 
     @NotBlank
     @Column(name = "icon", nullable = false)
@@ -34,4 +37,8 @@ public class Habit {
     @NotBlank
     @Column(name = "title", nullable = false)
     private String title;
+
+    public void removeCheck(long id) {
+        checks.removeIf(check -> check.getId().equals(id));
+    }
 }
