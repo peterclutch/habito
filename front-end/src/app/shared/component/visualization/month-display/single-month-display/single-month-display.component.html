@@ -1,0 +1,29 @@
+<div class="calendar">
+  <div class="month-indicator">{{ daysInMonths[0] | date: 'MMMM' }}</div>
+  <div class="date-grid">
+    <div
+      *ngFor="let day of daysInMonths; let first = first"
+      nz-popover
+      [nzPopoverContent]="actionContent"
+      nzPopoverPlacement="bottom"
+      [class.check]="isChecked(day, checks)"
+      [class.today]="isToday(day)"
+      [style.--first-day-of-month]="getFirstDayOfMonth(daysInMonths[0])"
+    >
+      <time [dateTime]="day"></time>
+      <ng-template #actionContent>
+        <div class="day-popover" [class.check]="isChecked(day, checks)">
+          <div class="title">{{ day | date:'MMMM d, y' }}</div>
+          <div class="action" (click)="createCheck(day)">
+            <em nz-icon nzType="ic-tick"></em>
+            Check off date!
+          </div>
+          <div class="action" (click)="deleteCheck(day)">
+            <em nz-icon nzType="ic-cross"></em>
+            Uncheck date!
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

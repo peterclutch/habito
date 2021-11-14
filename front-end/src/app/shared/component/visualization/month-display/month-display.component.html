@@ -1,27 +1,29 @@
-<div class="calendar">
-  <div class="month-indicator">November 2021</div>
-  <div class="date-grid">
-    <div
-      *ngFor="let day of daysInMonths"
-      nz-popover
-      [nzPopoverContent]="actionContent"
-      nzPopoverPlacement="bottom"
-      [class.check]="isChecked(day, checks)"
+<div class="calendar-container">
+  <div class="calendar">
+    <ha-single-month-display
+      [checks]="checks"
+      [habitId]="habitId"
+      [month]="8"
+      [year]="2021"
     >
-      <time [dateTime]="day"></time>
-      <ng-template #actionContent>
-        <div class="day-popover" [class.check]="isChecked(day, checks)">
-          <div class="title">{{ day | date:'dd-MMM-yyyy' }}</div>
-          <div class="action" (click)="createCheck(day)">
-            <em nz-icon nzType="ic-tick"></em>
-            Check off date!
-          </div>
-          <div class="action" (click)="deleteCheck(day)">
-            <em nz-icon nzType="ic-cross"></em>
-            Uncheck date!
-          </div>
-        </div>
-      </ng-template>
-    </div>
+    </ha-single-month-display>
+  </div>
+  <div class="calendar">
+    <ha-single-month-display
+      [checks]="checks"
+      [habitId]="habitId"
+      [month]="9"
+      [year]="2021"
+    >
+    </ha-single-month-display>
+  </div>
+  <div class="calendar">
+    <ha-single-month-display
+      [checks]="checks"
+      [habitId]="habitId"
+      [month]="10"
+      [year]="2021"
+    >
+    </ha-single-month-display>
   </div>
 </div>

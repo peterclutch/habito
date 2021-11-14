@@ -1,0 +1,84 @@
+@import "ha-colors";
+
+.calendar {
+  width: fit-content;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date-grid div:first-child {
+  grid-column: var(--first-day-of-month);
+}
+
+.month-indicator {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.date-grid {
+
+  > div {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin: 4px;
+    border-radius: 4px;
+    background-color: hsla(60, 20%, 90%, 0.7);
+
+    &.check {
+      background-color: hsla(333, 100%, 45%, 0.4);
+    }
+
+    &.today {
+      //border-radius: 4px 4px 0 0;
+      border: 2px solid hsla(333, 100%, 45%, 1);
+    }
+  }
+}
+
+.day-popover {
+  font-size: 14px;
+  min-width: 175px;
+  text-align: center;
+
+  .title {
+    padding: 9px 18px;
+  }
+
+  .action {
+    padding: 18px;
+    font-weight: 500;
+    border-top: 1px solid hsla(245, 100%, 60%, 10%);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    em {
+      font-size: 20px;
+      margin-right: 12px;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.day-popover {
+  div:last-of-type {
+    display: none;
+  }
+
+  &.check {
+    div:last-of-type {
+      display: flex;
+    }
+
+    div:nth-last-of-type(2) {
+      display: none;
+    }
+  }
+}

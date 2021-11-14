@@ -35,6 +35,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { ConfirmModalComponent } from './shared/modal/confirm-modal/confirm-modal.component';
 import { MonthDisplayComponent } from './shared/component/visualization/month-display/month-display.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { SingleMonthDisplayComponent } from './shared/component/visualization/month-display/single-month-display/single-month-display.component';
 
 registerLocaleData(en);
 
@@ -58,6 +59,7 @@ registerLocaleData(en);
     DotMenuComponent,
     ConfirmModalComponent,
     MonthDisplayComponent,
+    SingleMonthDisplayComponent,
   ],
   imports: [
     BrowserModule,
