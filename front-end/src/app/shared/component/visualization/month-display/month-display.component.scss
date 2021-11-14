@@ -26,10 +26,54 @@
     height: 18px;
     margin: 4px;
     border-radius: 4px;
-    background-color: hsl(60, 20%, 94%);
+    background-color: hsl(60, 20%, 90%);
 
     &.check {
-      background-color: $color-tertiary;
+      background-color: $color-primary;
+    }
+  }
+}
+
+.day-popover {
+  font-size: 14px;
+  min-width: 175px;
+  text-align: center;
+
+  .title {
+    padding: 9px 18px;
+  }
+
+  .action {
+    padding: 18px;
+    font-weight: 500;
+    border-top: 1px solid hsla(245, 100%, 60%, 10%);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    em {
+      font-size: 20px;
+      margin-right: 12px;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.day-popover {
+  div:last-of-type {
+    display: none;
+  }
+
+  &.check {
+    div:last-of-type {
+      display: flex;
+    }
+
+    div:nth-last-of-type(2) {
+      display: none;
     }
   }
 }

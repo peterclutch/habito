@@ -9,7 +9,6 @@ import { HabitCheckService } from '../../../service/habit-check.service';
 })
 export class MonthDisplayComponent implements OnInit {
 
-  // @Input() checks2: Date[] = [new Date("2021-11-01"), new Date("2021-11-03"), new Date("2021-11-06"), new Date("2021-11-09"), new Date("2021-13-09")];
   @Input() checks: IHabitCheck[] = [];
   @Input() habitId: number | undefined;
 
@@ -65,9 +64,19 @@ export class MonthDisplayComponent implements OnInit {
     })
   }
 
-  // deleteCheck(id: number): void {
-  //   this.habitCheckService.delete(id).subscribe(() => {
-  //     this.habit.checks = this.habit.checks.filter(check => check.id != id)
-  //   })
-  // }
+  deleteCheck(date: Date): void {
+    if (!this.habitId || !this.isChecked(date, this.checks)) {
+      return;
+    }
+
+    const habitToDelete: IHabitCheck | undefined = this.checks.find(check => this.isSameDate(date, new Date(check.date)));
+
+    if (!habitToDelete) {
+      return;
+    }
+
+    this.habitCheckService.delete(habitToDelete.id).subscribe(() => {
+      this.checks = this.checks.filter(check => check.id != habitToDelete.id)
+    })
+  }
 }
