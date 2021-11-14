@@ -1,0 +1,14 @@
+<div class="calendar">
+  <div class="month-indicator">November 2021</div>
+  <div class="date-grid">
+    <div
+      *ngFor="let day of daysInMonths"
+      nz-tooltip
+      [nzTooltipTitle]="day | date:'dd-MMM-yyyy'"
+      [class.check]="isChecked(day, checks)"
+      (click)="createCheck(day)"
+    >
+      <time [dateTime]="day"></time>
+    </div>
+  </div>
+</div>

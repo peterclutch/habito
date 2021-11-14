@@ -7,11 +7,8 @@
     ></ha-dot-menu>
   </header>
 
-  <div (click)="createCheck()">
-    Lorem ipsum
-  </div>
-
-  <div *ngFor="let check of habit.checks" (click)="deleteCheck(check.id)">
-    {{ check.date }}
-  </div>
+  <ha-month-display
+    [checks]="habit.checks"
+    [habitId]="habit.id"
+  ></ha-month-display>
 </ha-card>

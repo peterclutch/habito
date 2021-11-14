@@ -53,21 +53,4 @@ export class HabitComponent implements OnInit {
     });
   }
 
-  createCheck(): void {
-    // TODO
-    this.habitCheckService.create({
-      id: 0,
-      habitId: this.habit.id,
-      date: new Date("2021-11-16")
-    }).subscribe(habit => {
-      this.habit = habit;
-    })
-  }
-
-  deleteCheck(id: number): void {
-    this.habitCheckService.delete(id).subscribe(() => {
-      this.habit.checks = this.habit.checks.filter(check => check.id != id)
-    })
-  }
-
 }

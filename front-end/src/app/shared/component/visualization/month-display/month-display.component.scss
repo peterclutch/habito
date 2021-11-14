@@ -1,0 +1,35 @@
+@import "ha-colors";
+
+.calendar {
+  width: fit-content;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date-grid div:first-child {
+  grid-column: 1;
+}
+
+.month-indicator {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.date-grid {
+
+  > div {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin: 4px;
+    border-radius: 4px;
+    background-color: hsl(60, 20%, 94%);
+
+    &.check {
+      background-color: $color-tertiary;
+    }
+  }
+}

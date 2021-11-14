@@ -33,6 +33,8 @@ import { EmojiPickerComponent } from './shared/component/form/emoji-picker/emoji
 import { DotMenuComponent } from './shared/component/dot-menu/dot-menu.component';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { ConfirmModalComponent } from './shared/modal/confirm-modal/confirm-modal.component';
+import { MonthDisplayComponent } from './shared/component/visualization/month-display/month-display.component';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 registerLocaleData(en);
 
@@ -55,6 +57,7 @@ registerLocaleData(en);
     EmojiPickerComponent,
     DotMenuComponent,
     ConfirmModalComponent,
+    MonthDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzIconModule.forRoot(icons),
     NzPopoverModule,
+    NzToolTipModule,
     CookieModule.forRoot(),
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     OverlayModule
