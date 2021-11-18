@@ -1,29 +1,16 @@
-<div class="calendar-container">
-  <div class="calendar">
-    <ha-single-month-display
-      [checks]="checks"
-      [habitId]="habitId"
-      [month]="8"
-      [year]="2021"
-    >
-    </ha-single-month-display>
-  </div>
-  <div class="calendar">
-    <ha-single-month-display
-      [checks]="checks"
-      [habitId]="habitId"
-      [month]="9"
-      [year]="2021"
-    >
-    </ha-single-month-display>
-  </div>
-  <div class="calendar">
-    <ha-single-month-display
-      [checks]="checks"
-      [habitId]="habitId"
-      [month]="10"
-      [year]="2021"
-    >
-    </ha-single-month-display>
+<div *ngFor="let year of getYears(currentDate, minDate)">
+  <div class="year-title">~ {{ year }} ~</div>
+  <div class="calendar-container">
+    <ng-container *ngFor="let month of getMonths(year, currentDate, minDate)">
+      <div class="calendar">
+        <ha-single-month-display
+          [checks]="checks"
+          [habitId]="habitId"
+          [month]="month"
+          [year]="year"
+        >
+        </ha-single-month-display>
+      </div>
+    </ng-container>
   </div>
 </div>
